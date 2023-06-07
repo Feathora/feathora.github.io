@@ -28,9 +28,10 @@ urls:
 
 author_logo: profile.png
 author: Vincent Booman
-author_bio: >-
-Hi, my name is Vincent Booman. People mostly recognize me by my purple hair or black fedora hat.
-As a Game Developer, 
+author_bio: |+
+  Hi, my name is Vincent Booman. People mostly recognize me by my purple hair or black fedora hat.
+  As a Game Developer, 
+
 author_email: "vincent@vplusplus.nl"
 author_location: Netherlands
 author_website_url: "https://vplusplus.nl"
@@ -41,14 +42,14 @@ hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg.
 author_work_experiences:
             - company_name: V++
               company_logo: vpp_logo_square.png
-              company_url: https://vplusplus.nl
+              company_url: https://vplusplus.nl/vplusplus
               designation: Founder & Developer
               description: Worked on various game and non-game projects
               duration: 2016 - Current
               visibility: true
             - company_name: Utrecht University of the Arts
               company_logo: hku_logo.png
-              company_url: https://hku.nl
+              company_url: https://www.hku.nl
               designation: Teacher & Supervisor
               description: At the HKU, I teach a variety of development subjects, from their first Unity3D classes, to Maths, AI, Networking and C++. I'm also a supervisor during group projects throughout the years, graduation supervisor, and I'm part of the Opleidingscommissie. 
               duration: 2016 - Current
@@ -65,7 +66,7 @@ author_work_experiences:
 author_education_details:
               - college_logo: hku_logo.png
                 college_name: HKU
-                college_url: https://hku.nl
+                college_url: https://www.hku.nl
                 college_degree: Game Design & Development
                 description: Master of the Arts
                 visibility: true
