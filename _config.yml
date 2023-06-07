@@ -1,6 +1,6 @@
 title: Vincent Booman
 subtitle: Game Developer
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines until "url:"
   devlopr-jekyll is a beautiful Jekyll Theme Built For Developers, which is optimized for speed and readability.
 
 url: "" # the base hostname & protocol for your site, e.g. https://example.github.io
@@ -10,6 +10,14 @@ baseurl: "" # the subpath of your site, e.g. /blog
 urls:
     - text: Home
       url: /
+    - text: V++
+      url: /vplusplus
+    - text: HKU
+      url: /hku
+    - text: Monkeybizniz
+      url: /monkeybizniz
+    - text: Personal
+      url: /personal
     # - text: About
     #   url: /about
     # - text: Blog
@@ -20,7 +28,9 @@ urls:
 
 author_logo: profile.png
 author: Vincent Booman
-author_bio: Hi, my name is Vincent Booman. 
+author_bio: >-
+Hi, my name is Vincent Booman. People mostly recognize me by my purple hair or black fedora hat.
+As a Game Developer, 
 author_email: "vincent@vplusplus.nl"
 author_location: Netherlands
 author_website_url: "https://vplusplus.nl"
@@ -34,18 +44,21 @@ author_work_experiences:
               company_url: https://vplusplus.nl
               designation: Founder & Developer
               description: Worked on various game and non-game projects
+              duration: 2016 - Current
               visibility: true
-            - company_name: HKU
+            - company_name: Utrecht University of the Arts
               company_logo: hku_logo.png
               company_url: https://hku.nl
               designation: Teacher & Supervisor
-              description: Teaching various development courses and supervising projects
+              description: At the HKU, I teach a variety of development subjects, from their first Unity3D classes, to Maths, AI, Networking and C++. I'm also a supervisor during group projects throughout the years, graduation supervisor, and I'm part of the Opleidingscommissie. 
+              duration: 2016 - Current
               visibility: true
             - company_name: Monkeybizniz
               company_logo: monkeybizniz_logo.png
               company_url: http://monkeybizniz.com
               designation: Lead Programmer
-              description: Worked on serious games and built our own in-house Engine
+              description: Monkeybizniz is a small serious game company in Utrecht. During my time here, I've worked as the sole developer on various game projects for external clients, such as TNO, Wilhelmina Children's Hospital, Utrecht University, and more. I've also developed our own custom in-house multi-platform Game Engine.
+              duration: 2012 - 2016
               visibility: true
 
 # Education
