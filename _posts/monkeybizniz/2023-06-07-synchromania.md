@@ -5,7 +5,7 @@ summary: A game used in trainings by TNO for cargo planners, to teach them about
 author: Vincent
 date: '2019-05-22 14:35:23 +0530'
 category: monkeybizniz
-thumbnail: "/assets/img/posts/code.jpg"
+thumbnail: "/assets/img/posts/synchromania.png"
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll,
   devlopr-jekyll tutorial,best jekyll themes
 permalink: "/projects/monkeybizniz/synchromania/"

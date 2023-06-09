@@ -18,6 +18,8 @@ urls:
       url: /monkeybizniz
     - text: Personal
       url: /personal
+    - text: Student
+      url: /student
     # - text: About
     #   url: /about
     # - text: Blog
@@ -32,7 +34,8 @@ author_bio: |+
   Hi, my name is Vincent Booman. People mostly recognize me by my purple hair or black fedora hat.<br /><br />
   As a Game Developer, I'm always looking for ways I can use my code to improve lives and make an impact. Whether that's my own life, by building an annoying alarm clock that won't go off until I'm out of bed, my friend's life, by building an app to remind her of good times when things look bleak, young children in the hospital with the beautiful Serious Games we built at Monkeybizniz, or my students at the HKU, by building a platform they can use to easily share their projects with fellow and future students.<br /><br />
   I am always interested in exploring and learning new technologies and skills, which is why I was very happy to build our own in-house multi-platform Game Engine in C++ at Monkeybizniz, use Xamarin to build a mobile location-based poetry platform, use React to build a web app for 'de Cultuurfabriek' in Veenendaal, and why I'm now exploring Unreal Engine 5, to see what beautiful experiences that will allow me to create.<br /><br />
-  For me, development is not about a specific language or tool, it's about what you can accomplish with them.<br /><br />
+  For me, development is not about a specific language or software, it's about what kind of impact they enable.<br /><br />
+author_bio_short: Hi, my name is Vincent Booman. For me, development is not about a specific language or software, it's about what kind of impact they enable.
 author_email: "vincent@vplusplus.nl"
 author_location: Netherlands
 author_website_url: "https://vplusplus.nl"
