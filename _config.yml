@@ -47,21 +47,21 @@ author_work_experiences:
             - company_name: V++
               company_logo: vpp_logo_square.png
               company_url: https://vplusplus.nl/vplusplus
-              designation: Founder & Developer
-              description: Worked on various game and non-game projects
+              designation: Freelance Developer
+              description: As a freelancer under the name of V++, I work on both game and non-game projects. I've released a small game called Fnakball in collaboration with indie studio Knuist & Perzik, built a collection of location-based poetry apps with Stiching Interactive Culture, and built a web app for De Cultuurfabriek in Veenendaal.
               duration: 2016 - Current
               visibility: true
             - company_name: Utrecht University of the Arts
               company_logo: hku_logo.png
               company_url: https://www.hku.nl
               designation: Teacher & Supervisor
-              description: At the HKU, I teach a variety of development subjects, from their first Unity3D classes, to Maths, AI, Networking and C++. I'm also a supervisor during group projects throughout the years, graduation supervisor, and I'm part of the Opleidingscommissie. 
+              description: At the HKU, I teach a variety of development subjects, from their first Unity3D classes, to Maths, AI, Networking and C++. I'm also a supervisor during group projects throughout the years, graduation supervisor, and I'm part of the Education Committee. 
               duration: 2016 - Current
               visibility: true
             - company_name: Monkeybizniz
               company_logo: monkeybizniz_logo.png
               company_url: http://monkeybizniz.com
-              designation: Lead Programmer
+              designation: Developer
               description: Monkeybizniz is a small serious game company in Utrecht. During my time here, I've worked as the sole developer on various game projects for external clients, such as TNO, Wilhelmina Children's Hospital, Utrecht University, and more. I've also developed our own custom in-house multi-platform Game Engine.
               duration: 2012 - 2016
               visibility: true
@@ -71,8 +71,8 @@ author_education_details:
               - college_logo: hku_logo.png
                 college_name: HKU
                 college_url: https://www.hku.nl
-                college_degree: Game Design & Development
-                description: Master of the Arts
+                college_degree: Master of the Arts
+                description: Game Design & Development
                 visibility: true
 
 # Projects
