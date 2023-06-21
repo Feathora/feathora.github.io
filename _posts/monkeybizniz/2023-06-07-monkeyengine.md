@@ -1,7 +1,7 @@
 ---
 title: MonkeyEngine
 layout: post
-summary: In a time before Unity3D was a viable option, we built our own custom 2D multi-platform Game Engine that we've used for most of our projects since. 
+summary: In a time before Unity was a viable option, we built our own custom 2D multi-platform Game Engine that we've used for most of our projects since. 
 author: Vincent
 date: '2019-05-22 14:35:23 +0530'
 category: monkeybizniz
@@ -39,7 +39,7 @@ We didn't add all these features in one go, but rather on a case-by-case basis, 
 
 The first version of the engine only supported iOS, so the structure of the engine could be kept rather simple. There was an Engine class, a Renderer class, a Texture class, an AudioPlayer class, etc. And it used Apple's own framework for some of the core functionality, such as the built-in PNG decoder. When it was time to start supporting Android, I first tried to mix in the Android code with all the iOS code using lots of '#if IOS' and '#if ANDROID' directives. This kept the overall file structure of the engine simple, but the implementation code became unreadable very quickly. I needed a better approach.
 
-For the second version of the engine, the different platforms were separated into their own files and projects. Whenever a class needs a platform-specific implementation, a virtual base class is used for shared functionality and their public-facing API. Every platform then implements their own version on top of the base class, overriding the virtual functions. To support a new platform, all you need to do is provide a new implementation on top of the base class.
+For the second version of the engine, the different platforms were separated into their own files and projects, with a platform-independent project for shared functionality. Whenever a class needs a platform-specific implementation, a virtual base class is used for shared functionality and their public-facing API. Every platform then implements their own version on top of the base class, overriding the virtual functions. To support a new platform, all you need to do is provide a new implementation on top of the base class.
 
 Games that use the engine don't have to worry about using the right implementation class. Because every platform uses the same names for the classes, the compiler will select the right one for the right platform. The downside to this is that you end up with several files and classes that use the same name, only they're in different folders. This might be a trade-off between ease of use in a game and during development of the engine. I have a feeling there might be a better approach, but that's something I'd like to explore in a new version.
 
@@ -102,4 +102,12 @@ To set up a new development machine, there's a batch file that downloads all the
 ### Interesting Engine
 
 Engine development is something that still fascinates me to this day, and there's a lot of things I'd like to improve, I'd like to add support for 3D, physics, Raytracing, consoles, and much more. Not because we needed, but just as a fun project for myself, and to keep learning and improving my skills. That's why I've started working on the [Interesting Engine](/projects/personal/interesting-engine). These days, I wouldn't recommend writing your own engine anymore, not for production purposes (unless you're a big company with enough resources), but I do think every developer should try it for themselves at least once. You will learn so much about the way engines work and what they do for you, making you a better developer in any engine.
+
+### Games
+
+Most of the games we've made since building the engine, have been made in the engine, adding features to the engine whenever the need arose. 
+- [LUTS](/projects/monkeybizniz/luts) was the first game we made in the MonkeyEngine and included all the basics, including support for DragonBones animations. 
+- For [Prik](/projects/monkeybizniz/prik) we added support for Android and Localisation.
+- In [Kucheza](/projects/monkeybizniz/kucheza) we added support for running on Windows via the Win32 API.
+- [Letterprins](/projects/monkeybizniz/letterprins) gained the ability to play video's in mp4 format.
 
