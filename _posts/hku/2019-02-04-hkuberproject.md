@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "HKU Projects"
+title:  "HKU Projects Platform"
 summary: "A student once asked if I could show them what other students made in previous years. I realised I couldn't easily do that, so I made a website that could."
 author: Vincent
 date: '2019-05-22 14:35:23 +0530'

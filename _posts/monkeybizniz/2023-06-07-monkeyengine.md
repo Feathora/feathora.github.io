@@ -105,9 +105,8 @@ Engine development is something that still fascinates me to this day, and there'
 
 ### Games
 
-Most of the games we've made since building the engine, have been made in the engine, adding features to the engine whenever the need arose. 
+Most of the games we've made since building the engine, have been made in the engine, adding features to the engine whenever the need arose. A few examples include:
 - [LUTS](/projects/monkeybizniz/luts) was the first game we made in the MonkeyEngine and included all the basics, including support for DragonBones animations. 
 - For [Prik](/projects/monkeybizniz/prik) we added support for Android and Localisation.
 - In [Kucheza](/projects/monkeybizniz/kucheza) we added support for running on Windows via the Win32 API.
-- [Letterprins](/projects/monkeybizniz/letterprins) gained the ability to play video's in mp4 format.
 
