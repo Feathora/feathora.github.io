@@ -250,6 +250,28 @@ Game scenes for the engine can be defined in a simple XML structure. The scene f
 </Scene>
 ```
 
+This entire scene can then be used as follows. The game code can focus purely on game logic by implementing these Scene classes, while the engine handles the rest, such as input for the buttons, scene transitions, rendering, etc.
+
+```c++
+GameScene::GameScene()
+	: Scene("Scenes/GameScene.xml")
+{
+}
+
+void GameScene::OnInit()
+{
+    homeButton = GetVisual<Button>("home_btn");
+}
+
+void GameScene::OnUpdate()
+{
+    if (homeButton->Pressed())
+    {
+        MonkeyScreen::MainScreen()->GetSceneManager()->EnterScene<MenuScreen>();
+    }
+}
+```
+
 ### UI Scaling
 
 The entire game can be constructed in terms of a single reference resolution, for example 1280 by 720. Using a scaling and translation matrix, the entire scene is then scaled to the actual size and aspect ratio of the target device. You can specify settings per visual element to determine how it scales and translates. For different aspect ratios, you can define so-called anchor points to for example keep an element in the bottom-right corner, instead of moving to the middle. This functionality is comparable to responsive design webdesign, where a web page needs to look good on hundreds of different devices and resolutions.
