@@ -4,6 +4,7 @@ title:  "Hours 'n Hours"
 summary: "Nobody likes keeping track of worked hours as a freelancer, especially when you keep forgetting to do it. So I made an app to help me."
 author: Vincent
 date: '2019-05-22 14:35:23 +0530'
+year: '2018'
 category: personal
 thumbnail: /assets/img/posts/hoursnhours.jpg
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes

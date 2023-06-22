@@ -4,6 +4,7 @@ title:  "Graduation"
 summary: "For my graduation, I wrote my Master Thesis on the possibilities of weather in games. I then built a proof of concept in which you have to predict the weather and take advantage of it in order to beat your opponent."
 author: Vincent
 date: '2019-05-22 14:35:23 +0530'
+year: '2013'
 category: student
 thumbnail: /assets/img/posts/code.jpg
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes

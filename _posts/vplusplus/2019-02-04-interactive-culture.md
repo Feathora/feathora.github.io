@@ -3,7 +3,8 @@ layout: post
 title:  "Interactive Culture"
 summary: "A collection of cultural, location-based apps about poetry."
 author: Vincent
-date: '2019-05-22 14:35:23 +0530'
+date: '2022-05-22 14:35:23 +0530'
+year: '2018 - 2023'
 category: vplusplus
 thumbnail: /assets/img/posts/logo_sic.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes

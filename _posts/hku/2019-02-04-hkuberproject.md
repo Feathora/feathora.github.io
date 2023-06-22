@@ -3,7 +3,8 @@ layout: post
 title:  "HKU Projects Platform"
 summary: "A student once asked if I could show them what other students made in previous years. I realised I couldn't easily do that, so I made a website that could."
 author: Vincent
-date: '2019-05-22 14:35:23 +0530'
+date: '2022-05-22 14:35:23 +0530'
+year: '2021'
 category: hku
 thumbnail: /assets/img/posts/hkuberproject.png
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes

@@ -3,12 +3,12 @@
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
     <h4 class="post-meta">{{ page.summary }}</h4>
     <p class="post-summary">
-      Posted by : {% if page.author %}
+      <!-- Posted by : {% if page.author %}
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
         <span itemprop="name"><a href="{{site.url}}{{site.baseurl}}/blog/authors/{{page.author}}">{{ page.author }}</a></span> </span
-      >{% endif %} on
+      >{% endif %} on -->
       <time datetime="{{ page.date }}" itemprop="datePublished"
-        >{{ page.date | date: "%b %-d, %Y" }}</time
+        >{{ page.year }}</time
       >
     </p>
     <span

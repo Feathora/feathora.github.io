@@ -3,7 +3,8 @@ layout: post
 title:  "Interesting Engine"
 summary: "Re-imagining the original MonkeyEngine with 3D support, new platforms and a brand new codebase, based on everything I've learned since."
 author: Vincent
-date: '2019-05-22 14:35:23 +0530'
+date: '2023-05-22 14:35:23 +0530'
+year: '2023'
 category: personal
 thumbnail: /assets/img/posts/code.jpg
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes

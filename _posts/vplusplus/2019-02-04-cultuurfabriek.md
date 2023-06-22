@@ -3,7 +3,8 @@ layout: post
 title:  "Cultuurfabriek"
 summary: "A small companion app used by the Cultuurfabriek in Veenendaal"
 author: Vincent
-date: '2019-05-22 14:35:23 +0530'
+date: '2021-05-22 14:35:23 +0530'
+year: '2022'
 category: vplusplus
 thumbnail: /assets/img/posts/cultuurfabriek.jpg
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes

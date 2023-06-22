@@ -3,7 +3,8 @@ layout: post
 title:  "Advent of Code"
 summary: "An advent calendar, 25 days before Christmas, with two puzzles per day, only solvable with code. Incredibly fun, and a great opportunity to challenge yourself in new ways, for example by using a language you've never used before."
 author: Vincent
-date: '2019-05-22 14:35:23 +0530'
+date: '2022-05-22 14:35:23 +0530'
+year: '2017 - 2022'
 category: personal
 thumbnail: /assets/img/posts/adventofcode.webp
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll, devlopr-jekyll tutorial,best jekyll themes

@@ -3,7 +3,8 @@ title: MonkeyEngine
 layout: post
 summary: In a time before Unity was a viable option, we built our own custom 2D multi-platform Game Engine that we've used for most of our projects since. 
 author: Vincent
-date: '2019-05-22 14:35:23 +0530'
+date: '2023-05-22 14:35:23 +0530'
+year: '2013 - 2016'
 category: monkeybizniz
 thumbnail: "/assets/img/posts/code.jpg"
 keywords: devlopr jekyll, how to use devlopr, devlopr, how to use devlopr-jekyll,
