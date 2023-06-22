@@ -18,7 +18,6 @@ permalink: /vplusplus/
           <h4 class="experience-title">{{ exp.designation }}</h4>
           <h6 class="experience-info">{{ exp.company_name}} ({{ exp.duration }})</h6>
           <p class="experience-desc">{{ exp.description }}</p>
-          <p><a href="{{exp.company_url}}">{{ exp.company_url}}</a></p>
         </div>
       </div>
     {% endif %} {% endfor %}

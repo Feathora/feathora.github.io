@@ -13,9 +13,15 @@ permalink: "/projects/monkeybizniz/monkeyengine/"
 usemathjax: true
 ---
 
+# Disclaimer
+
+I noticed that, since there are so many pieces to the MonkeyEngine, spanning different systems and platforms, it's hard to highlight just a few code snippets, because the individual pieces make them seem trivial. I've tried to highlight a few interesting pieces, but I'd much rather go in depth on the system and the process during a conversation. It's how it all fits together and how you can use it that makes it interesting.
+
+# About
+
 Back in 2013, the world of mobile game development looked different than it does now. You could use Unity to build your game, but to actually compile it for mobile, you had to pay for a license per platform, it wasn't included in the free version yet. At Monkeybizniz, we did create the [Game of the Golden Age](https://spelvandegoudeneeuw.wordpress.com/het-spel/) in Unity, but every time Apple released a new version of iOS, it took Unity at least a few weeks to catch up and support the new version, which resulted in an unhappy client for us, because he couldn't run the game anymore and we couldn't fix it until Unity released a new update.
 
-This led us to the decision to build our own in-house engine, called the MonkeyEngine. Because the engine was only meant to be for our own internal projects, we could keep it as simple and lightweight as we wanted, only adding the functionality that we needed. Especially back then, when mobile devices weren't as powerful as they are now, Unity didn't always run smoothly on low-end devices. Our engine had an advantage there.
+This led us to the decision to build our own in-house engine, called the MonkeyEngine. Because the engine was only meant to be used for our own internal projects, we could keep it as simple and lightweight as we wanted, only adding the functionality that we needed. Especially back then, when mobile devices weren't as powerful as they are now, Unity didn't always run smoothly on low-end devices. Our engine had an advantage there.
 
 Some features of the engine:
 - It had to run on iOS and Android. Support for Win32 and macOS was added later as well. Xbox One is partially supported as a personal experiment.
@@ -34,7 +40,7 @@ Some features of the engine:
 
 # Tech
 
-We didn't add all these features in one go, but rather on a case-by-case basis, whenever we needed the functionality. The entire engine is built in C++, using a variety of 3rd party libraries for maximum compatibility between different platforms.
+We didn't add all these features in one go, but rather on a case-by-case basis, whenever we needed the functionality. The entire engine is built in C++, using a variety of low-level 3rd party libraries for maximum compatibility between different platforms.
 
 ### Multiplatform
 
@@ -42,11 +48,173 @@ The first version of the engine only supported iOS, so the structure of the engi
 
 For the second version of the engine, the different platforms were separated into their own files and projects, with a platform-independent project for shared functionality. Whenever a class needs a platform-specific implementation, a virtual base class is used for shared functionality and their public-facing API. Every platform then implements their own version on top of the base class, overriding the virtual functions. To support a new platform, all you need to do is provide a new implementation on top of the base class.
 
+```c++
+class MonkeyAppBase //Shared base class used by all platforms
+{
+public:
+	MonkeyAppBase();
+	virtual ~MonkeyAppBase();
+
+	virtual void Run() = 0;
+
+	//Actual class has more functions
+};
+```
+
+```c++
+void MonkeyApp::Run() //Implementation on Windows (via Win32)
+{
+	MonkeyEngine::MainEngine().RegisterNativeApp(this);
+
+	RegisterWindowClass();
+
+	CreateAppWindow();
+
+	OnInitialised();
+
+	OnActivate();
+
+	static const u_int FRAME_TIME = 16;
+
+	MSG message;
+	message.message = ~WM_QUIT;
+	DWORD nextDeadLine = GetTickCount() + FRAME_TIME;
+	DWORD sleep = FRAME_TIME;
+
+	while(message.message != WM_QUIT)
+	{
+		DWORD result = MsgWaitForMultipleObjectsEx(0, nullptr, sleep, QS_ALLEVENTS, 0);
+		if(result != WAIT_TIMEOUT)
+		{
+			while(PeekMessage(&message, nullptr, 0, 0, PM_REMOVE))
+			{
+				TranslateMessage(&message);
+				DispatchMessage(&message);
+			}
+		}
+		else OnStep();
+	}
+}
+```
+
+```c++
+void MonkeyApp::Run() //Implementation on Android (via NativeActivity)
+{
+	application->onAppCmd = ActivityCallback;
+	application->onInputEvent = InputCallback;
+	application->userData = this;
+
+	MonkeyEngine::MainEngine().RegisterNativeApp(this);
+
+	Resources::SetNativeAssetManager(application->activity->assetManager);
+	Resources::SetPrivateDataPath(application->activity->internalDataPath);
+
+	int lResult;
+	int lEvents;
+
+	android_poll_source* lSource;
+
+	while(true)
+	{
+		while((lResult = ALooper_pollAll(IsEnabled() - 1, nullptr, &lEvents, (void**)&lSource)) >= 0)
+		{
+			if(lSource != nullptr)
+			{
+				lSource->process(application, lSource);
+			}
+
+			if(application->destroyRequested) 
+			{
+				return;
+			}
+		}
+
+		if(IsEnabled() && !shouldQuit)
+		{
+			if(OnStep())
+			{
+				shouldQuit = true;
+				ANativeActivity_finish(application->activity);
+			}
+		}
+	}
+}
+```
+
 Games that use the engine don't have to worry about using the right implementation class. Because every platform uses the same names for the classes, the compiler will select the right one for the right platform. The downside to this is that you end up with several files and classes that use the same name, only they're in different folders. This might be a trade-off between ease of use in a game and during development of the engine. I have a feeling there might be a better approach, but that's something I'd like to explore in a new version.
 
 ### Image loading
 
 For image loading, the engine uses the libpng library on all platforms. The first version of the engine used Apple's own PNG loader, but to keep things consistent between platforms, it now uses libpng everywhere.
+
+```c++
+bool TextureResourceBase::Load()
+{
+	MonkeyAssetFile asset;
+	asset.Open(rscName);
+
+	if(!asset.IsOpen()) return false;
+
+	png_byte header[8];
+	png_structp pngPtr = nullptr;
+	png_infop infoPtr = nullptr;
+	png_byte* imageBuffer = nullptr;
+	png_bytep* rowPtrs = nullptr;
+	png_size_t rowSize;
+	MonkeyTextureFormat textureFormat;
+	bool transparency;
+
+	asset.Read(reinterpret_cast<char*>(header), 8);
+	if(asset.Fail())
+	{
+		MonkeyLog("Unable to read asset: %s\n", rscName.c_str());
+		return false;
+	}
+
+	//All the initialisation, reading the png memory structs and memory allocation
+
+	png_read_image(pngPtr, rowPtrs);
+
+	png_destroy_read_struct(&pngPtr, &infoPtr, nullptr);
+	delete rowPtrs;
+
+	bool result = LoadWithData(pngWidth, pngHeight, textureFormat, imageBuffer, rowSize / pngWidth, isRetinaData);
+	
+	delete[] imageBuffer;
+	
+	return result;
+}
+```
+
+Rendering uses OpenGL(ES) on all platforms, except on UWP, where it uses DirectX 11.
+
+```c++
+void Texture2DShader::Render()
+{
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
+
+	glBindVertexArray(glVAO);
+
+#if MONKEY_ANDROID
+	glBindBuffer(GL_ARRAY_BUFFER, glVertexBuffer);
+	glEnableVertexAttribArray(TEXTURE2D_POSITION);
+	glVertexAttribPointer(TEXTURE2D_POSITION, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), 0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, glTexCoordBuffer);
+	glEnableVertexAttribArray(TEXTURE2D_TEXCOORD);
+	glVertexAttribPointer(TEXTURE2D_TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(Vector2f), 0);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, glIndexBuffer);
+#endif
+
+	glUniform4fv(glScreenColourLocation, 1, (GLfloat*)&MonkeyScreen::MainScreen()->GetColour());
+
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, 0);
+
+	glBindVertexArray(0);
+}
+```
 
 ### Font rendering
 
@@ -59,6 +227,28 @@ For dynamic fonts, the engine uses the Freetype library, which supports all majo
 ### Scenes
 
 Game scenes for the engine can be defined in a simple XML structure. The scene file has support for the basic visual types, such images, buttons, bone sprites and text labels. They can be placed using absolute and relative positions. A custom pivot point can be defined. And there's support for enter and exit animations for when there's a transition to a new scene, including preserving objects between scenes. 
+
+```xml
+<Scene>
+    <Config Orientation="Landscape">
+        <Image name="bkg" source="bg.png" persistent="true">
+            <Position x="0" y="0" />
+            <Pivot x=".5" y=".5" />
+        </Image>
+        <Button name="home_btn" source="btn_home.png" anchor="top|left">
+            <Position x="36" y="36" />
+            <Enter>
+              <Slide direction="down" />
+              <Fade />
+            </Enter>
+            <Leave>
+              <Slide direction="up" />
+              <Fade />
+            </Leave>
+        </Button>
+    </Config>
+</Scene>
+```
 
 ### UI Scaling
 
