@@ -300,6 +300,10 @@ There's also support for downloading data from an API using the cURL library.
 
 At one point, the MonkeyEngine did have a visual editor called the MonkeyEditor, in which we could create and edit a scene. The editor ran on macOS, and was itself built in the engine, just like in Unity. This meant that the scene preview would look exactly the same in the editor as it would on the device. The scene configuration was stored in an XML file, which could then be loaded in the game at runtime. Sadly, as the engine evolved, it turned out to be too time-consuming to keep the editor up to date as well, so support for it was eventually dropped. The XML files were easy enough to edit by hand, we still only supported 2D and building and running the game on the device only took a few seconds, which was good enough for our needs.
 
+### 3D Support
+
+The first version of the MonkeyEngine, when it only ran on iOS, briefly had support for 3D, because we had a small internal project we wanted to do as an experiment. This version used the Assimp library to load FBX files, and extract the mesh data, bone data and animation data, so the meshes could animate as well. There was also support for a few simple lights in the scene, but no shadows yet. Collision detection at this point was limited to rays and spheres. Sadly, because this was just an internal project, it was eventually dropped due to time and budget constraints, and the entire 3D support never transferred to the second version of the engine. 
+
 ### Tools
 
 I wanted to make it as easy as possible to use the engine, that's why I've also made a few tools available.
