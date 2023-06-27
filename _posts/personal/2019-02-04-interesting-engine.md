@@ -27,6 +27,8 @@ What I have so far, is a simple renderer that can load meshes, materials with sh
 
 For further research, I've also been getting into [DirectX 12](https://www.3dgep.com/learning-directx-12-1/), [Raytracing](https://raytracing.github.io/), and looking into how I can [combine the two](https://developer.nvidia.com/rtx/raytracing/dxr/dx12-raytracing-tutorial-part-1). 
 
+In addition, I've also been looking at the source code of other game engines for reference and inspiration. Among these are the [Godot Engine](https://github.com/godotengine/godot), the [OGRE rendering engnine](https://github.com/OGRECave/ogre), and perhaps most interestingly, the [HPL2 Engine](https://github.com/FrictionalGames/AmnesiaTheDarkDescent) by Frictional Games, used to create Amnesia: The Dark Descent. What I especially like about this last one, is the apparent simplicity of the code, making it very intuitive to browse through and see how all the moving parts connect.
+
 # Mesh Loading
 
 I needed a way to get mesh data into my engine. One possible solution that I've used in the past, is to implement the Assimp library to load an FBX file. But for now, that felt a bit like overkill, though I'll probably add it in the future. Instead, I wrote a small exporter in Unity, that simply takes an array of all the meshes I want to export, and exports them into a binary file, containing only the data I actually want to use. In this case, the vertices, indices, normals and UV's. This binary file can then be read directly in the engine.
